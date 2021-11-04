@@ -1,6 +1,5 @@
 /*******************************************************************************
 OpeningState.java (Menu for System Essentially)
-Responsible individual: 
 Provides Interface to chose the users role
 	- typeing exit can be used to quit any state
 	- higher authorities may log into lower permissions
