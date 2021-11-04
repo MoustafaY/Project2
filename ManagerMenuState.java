@@ -1,6 +1,5 @@
 /*******************************************************************************
 ManagerMenuState.java
-Responsible individual: 
 (a)    Add a product
 (b)    Add a supplier
 (c)     Show list of suppliers
