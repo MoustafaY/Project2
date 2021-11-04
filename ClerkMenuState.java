@@ -1,6 +1,5 @@
 /*****************************************************************
 ClerkMenuState.java
-Responsible individual:
 (a)    Add a client. Gets details of new client; calls method on Façade.
 (b)    Show list of products with quantities and sale prices.  The state invokes a method on Facade to get an iterator, and then extracts the needed information.
 (c)     Show list of clients. The state invokes a method on Facade to get an iterator, and then extracts the needed information.
