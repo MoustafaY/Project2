@@ -69,7 +69,7 @@ public class clientState extends state{
 	}
 	
 	public void showClient() {
-		String out = wh.getClient((contxt).getUser());
+		String out = wh.printClient((contxt).getUser());
 		
 		System.out.println(out);
 	}
