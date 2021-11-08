@@ -110,13 +110,20 @@ public class clientState extends state{
 	}
 	
 	public void logout() {
-		if((contxt).getLogin() == context.sales) {
-			System.out.println("Returning to clerk");
-			(contxt).changeState(contxt.SALES_STATE);
-		}
-		else {
-			(contxt).changeState(context.LOGIN_STATE);
-		}
+		if ((contxt).getLogin() == context.manager) {
+		      System.out.println("Returning to Manager");
+		      (contxt).changeState(context.MANAGER_STATE);
+		            
+		    } else if (contxt.getLogin() == context.sales) {
+		      System.out.println("Returning to Clerk");
+		      (contxt).changeState(context.SALES_STATE);
+		            
+		    } else if (contxt.getLogin() == context.client) {
+		      (contxt).changeState(context.CLIENT_STATE); 
+		            
+		    } else {
+		      (contxt).changeState(context.LOGIN_STATE);
+		    }
 	}
 	
 	public void makeOrder(){
