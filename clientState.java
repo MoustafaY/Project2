@@ -14,6 +14,8 @@ public class clientState extends state{
 	private static final int REM_FROM_CART = 5;
 	private static final int MOD_FROM_CART= 6;
 	private static final int SHOW_WAITLIST = 7;
+	private static final int MAKE_ORDER = 8;
+	private static final int MAKE_PAYMENT = 9;
 	
 	private clientState() {
 		super();
@@ -117,6 +119,18 @@ public class clientState extends state{
 		}
 	}
 	
+	public void makeOrder(){
+		String out = wh.makeOrder((contxt).getUser());
+		System.out.println(out);
+	}
+	
+	public void makePayment(){
+		double payment = Integer.pareseInt(getToken("Enter payment: "));
+		String out = wh.makePayment((cntxt).getUser(), payment);
+		
+		System.out.println(out);
+	}
+	
 	public void process() {
 		int command;
 		while((command = getCommand()) != EXIT) {
@@ -134,6 +148,10 @@ public class clientState extends state{
 			case MOD_FROM_CART: modFromCart();
 								break;
 			case SHOW_WAITLIST: showWaitList();
+								break;
+			case MAKE_ORDER: makeOrder();
+								break;
+			case MAKE_PAYMENT: makePayment();
 								break;
 			}
 		}
