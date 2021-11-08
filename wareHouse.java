@@ -246,6 +246,20 @@ public class wareHouse implements Serializable{
 		return output;
 	}
 	
+	public String makePayment(String clientId, double payment){
+		client temp = cliList.getClient(clientId);
+		if(temp.getBalance() < payment){
+			String output = "Invalid input";
+			return output;
+		}
+		
+		double newBalance = temp.getBalance() - payment;
+		temp.setBalance(newBalance);
+		
+		String output = "Payment complete new balance: " + temp.getBalance();
+		return output;
+	}
+	
 	public void getTransactions(String clientId) {
 		client temp = cliList.getClient(clientId);
 		transaction clientTransaction;
