@@ -29,6 +29,10 @@ public class client implements Serializable{
         return balance;
     }
 	
+	public void setBalance(double payment){
+		balance = payment;
+	}
+	
 	public Iterator<product> getCart() {
 		return cart.iterator();
 	}
