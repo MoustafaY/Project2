@@ -87,7 +87,7 @@ public class context{
 		//Transition from login state
 		nextState[LOGIN_STATE][MANAGER_STATE] = MANAGER_STATE;
 		nextState[LOGIN_STATE][SALES_STATE] = SALES_STATE;
-		nextState[LOGIN_STATE][CLIENT_STATE] = LOGIN_STATE;
+		nextState[LOGIN_STATE][CLIENT_STATE] = CLIENT_STATE;
 		nextState[LOGIN_STATE][LOGIN_STATE] = -2;
 		
 		currentState = LOGIN_STATE;

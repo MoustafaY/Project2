@@ -69,7 +69,7 @@ public class clientState extends state{
 	}
 	
 	public void showClient() {
-		String out = wh.printClient((contxt).getUser());
+		String out = wh.getClient((contxt).getUser());
 		
 		System.out.println(out);
 	}
@@ -84,7 +84,7 @@ public class clientState extends state{
 	
 	public void addToCart() {
 		String prodId = getToken("Enter product ID: ");
-		int quantity = Integer.parseInt("Enter product quantity: ");
+		int quantity = Integer.parseInt(getToken("Enter product quantity: "));
 		
 		String out = wh.addToCart((contxt).getUser(), prodId, quantity);
 		System.out.println(out);
@@ -110,30 +110,17 @@ public class clientState extends state{
 	}
 	
 	public void logout() {
-		if ((contxt).getLogin() == context.manager) {
-		      System.out.println("Returning to Manager");
-		      (contxt).changeState(context.MANAGER_STATE);
-		            
-		    } else if (contxt.getLogin() == context.sales) {
-		      System.out.println("Returning to Clerk");
-		      (contxt).changeState(context.SALES_STATE);
-		            
-		    } else if (contxt.getLogin() == context.client) {
-		      (contxt).changeState(context.CLIENT_STATE); 
-		            
-		    } else {
-		      (contxt).changeState(context.LOGIN_STATE);
-		    }
+		(contxt).changeState(context.CLIENT_STATE);
 	}
-	
+        
 	public void makeOrder(){
 		String out = wh.makeOrder((contxt).getUser());
 		System.out.println(out);
 	}
 	
 	public void makePayment(){
-		double payment = Integer.pareseInt(getToken("Enter payment: "));
-		String out = wh.makePayment((cntxt).getUser(), payment);
+		double payment = Integer.parseInt(getToken("Enter payment: "));
+		String out = wh.makePayment((contxt).getUser(), payment);
 		
 		System.out.println(out);
 	}
@@ -162,7 +149,6 @@ public class clientState extends state{
 								break;
 			}
 		}
-		
 		logout();
 	}
 	

@@ -50,6 +50,10 @@ public class productList implements Serializable {
      return null;
   }
   
+  public void addClient(String prodId, client client) {
+	  getProduct(prodId).addClient(client.getName(), client.getId());
+  }
+  
   
   
   public void acceptShipment(String id, int quantity) {
@@ -81,7 +85,7 @@ public class productList implements Serializable {
 	  product temp;
 	  while(pointer.hasNext()) {
 		  temp = pointer.next();
-		  System.out.println("Name: " + temp.getName() + ", ID: " + temp.getId() + ", Purchase price: " + temp.getPurchasePrice());
+		  System.out.println("Name: " + temp.getName() + ", ID: " + temp.getId() + ", Purchase price: " + temp.getPurchasePrice() + ", Quantity: " + temp.getQuantity());
 	  }
   }
   

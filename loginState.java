@@ -77,6 +77,10 @@ public class loginState extends state{
 	public void becomeClient() {
 		
 		String clientId = getToken("Enter client ID: ");
+		if(wh.getClient(clientId).equals("Invalid ID")) {
+			System.out.println("Invalid ID");
+			return;
+		}
 		System.out.println("Switching to client");
 		(contxt).setLogin(context.client);
 		(contxt).setUser(clientId);

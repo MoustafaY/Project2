@@ -10,7 +10,7 @@ public class client implements Serializable{
 	private LinkedList<transaction> transactionList = new LinkedList<transaction>();//transaction list is a linked list of transactions
 	private LinkedList<product> waitList = new LinkedList<product>();//waitlist is a linked list of products
 
-	private static final String CLIENT_STRING = "M";
+	private static final String CLIENT_STRING = "C";
 	
 	public client(String name) {
 		this.name = name;
@@ -25,6 +25,11 @@ public class client implements Serializable{
 	public String getId() {
 		return id;
 	}
+	
+	public void setId(String newId) {
+		id = newId;
+	}
+	
 	public double getBalance() {
         return balance;
     }
@@ -37,8 +42,12 @@ public class client implements Serializable{
 		return cart.iterator();
 	}
 	
-	public void addCart(product prod) {
+	public void addCart(String name, String prodId, int quantity, double price) {
+		
+		product prod = new product(name, quantity, price);
+		prod.setId(prodId);
 		cart.add(prod);
+
 	}
 	
 	public void remCart(String prodId) {
@@ -94,11 +103,11 @@ public class client implements Serializable{
 		while(pointer.hasNext()) {
 			temp = pointer.next();
 			if(temp.getId().equals(prodId)) {
-				break;
+				return temp;
 			}
 		}
 		
-		return temp;
+		return null;
 	}
 	
 	public void setWaitQuantity(String prodId, int quantity) {
@@ -128,12 +137,24 @@ public class client implements Serializable{
 			}
 		}
 	}
+	
+	public void printWaitList() {
+		
+		Iterator<product> pointer = waitList.iterator();
+		product temp;
+		
+		
+		while(pointer.hasNext()) {
+			temp = pointer.next();
+			System.out.println("Product: " + temp.getName() + ", ID: " + temp.getId() + ", Quantity: " + temp.getQuantity());
+		}
+	}
    
 	public void setName(String newName) {
 		this.name = newName;
 	}
 
-	    public void setBalance(double newBalance) {
+	    public void setNewBalance(double newBalance) {
 	        this.balance = newBalance;
 	    }
 

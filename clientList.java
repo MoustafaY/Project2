@@ -65,9 +65,9 @@ public class clientList implements Serializable{
 	
 		/*Functions of shopping cart of client*/
 	
-	public void addToCart(String clientId, product prod) {
+	public void addToCart(String clientId, product prod, int quantity) {
 		client temp = getClient(clientId);
-		temp.addCart(prod);
+		temp.addCart(prod.getName(), prod.getId(), quantity, prod.getPurchasePrice());
 	}
 	
 	public void remFromCart(String clientId, String prodId) {
@@ -78,6 +78,12 @@ public class clientList implements Serializable{
 	public void changeCartQuantity(String clientId, String prodId, int quantity) {
 		client temp = getClient(clientId);
 		temp.changeCartQuantity(prodId, quantity);
+	}
+	
+		/*Function of waitList of client*/
+	
+	public void addToWaitList(String clientId, product prod) {
+		getClient(clientId).addWaitListItem(prod);
 	}
 	
 	

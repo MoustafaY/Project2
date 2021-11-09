@@ -125,6 +125,8 @@ public class managerState extends state{
 	}
 	
 	public void becomeClerk() {
+		
+		System.out.println("Switching to clerk");
 		(contxt).changeState(contxt.SALES_STATE);
 	}
 	

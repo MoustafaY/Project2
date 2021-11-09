@@ -29,6 +29,10 @@ public class product implements Serializable {
         return id;
   }
   
+  public void setId(String newId) {
+	  id = newId;
+  }
+  
   
   public double getPurchasePrice() {
   return purchasePrice;
@@ -50,7 +54,9 @@ public class product implements Serializable {
 	  suppList.add(supp);
   }
   
-  public void addClient(client cli) {
+  public void addClient(String clientName, String clientId) {
+	  client cli = new client(clientName);
+	  cli.setId(clientId);
 	  cliList.add(cli);
   }
   
